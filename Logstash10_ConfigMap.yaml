@@ -1,12 +1,12 @@
 ﻿apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sample-logstash-configmap
+  name: logstash-configmap
   namespace: default
 data:
-    
+
   logstash.yml: |
-    xpack.monitoring.elasticsearch.url: http://sample-elasticsearch:9200
+    xpack.monitoring.elasticsearch.url: http://elasticsearch:9200
     dead_letter_queue.enable: true
     xpack.monitoring.enabled: true
     xpack.monitoring.elasticsearch.username: logstash_system 
@@ -15,7 +15,7 @@ data:
   pipelines.yml: |
     - pipeline.id: azureeventhubs
       path.config: "/usr/share/logstash/azureeventhubs.cfg"
-  
+
   azureeventhubs.cfg: |
     input {
       azure_event_hubs {
@@ -31,7 +31,7 @@ data:
     }
     output {
       elasticsearch {
-        hosts => [ "sample-elasticsearch:9200" ]
+        hosts => [ "elasticsearch:9200" ]
         user => "elastic"
         password => "Password1$"
         index => "azureeventhub-%{+YYYY.MM.dd}"

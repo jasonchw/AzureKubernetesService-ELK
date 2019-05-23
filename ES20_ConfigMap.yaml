@@ -1,11 +1,11 @@
 ﻿apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sample-elasticsearch-configmap
+  name: elasticsearch-configmap
   namespace: default
 data:
   elasticsearch.yml: |
-    cluster.name: "sample-elasticsearch-cluster"
+    cluster.name: "elasticsearch-cluster"
     network.host: 0.0.0.0
     discovery.zen.minimum_master_nodes: 1
     xpack.license.self_generated.type: trial

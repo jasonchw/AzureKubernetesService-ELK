@@ -1,13 +1,13 @@
 ﻿apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: sample-kibana-configmap
+  name: kibana-configmap
   namespace: default
 data:
   kibana.yml: |
-    server.name: sample-kibana
+    server.name: kibana
     server.host: "0"
-    elasticsearch.url: http://sample-elasticsearch:9200
+    elasticsearch.url: http://elasticsearch:9200
     xpack.monitoring.ui.container.elasticsearch.enabled: true
     elasticsearch.username: kibana
-    elasticsearch.password: Password1$
+    elasticsearch.password: Welcome1
